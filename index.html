@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./src/output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>turbo az</title>
+  </head>
+  <body>
+    <header>
+      <div class="h-[35px] flex justify-center items-center">
+        <div class="w-[60%] flex justify-between">
+          <ul class="flex gap-5 text-gray-400">
+            <li class="hover:text-red-500">
+              <a
+                class="cursor-context-menu"
+                href="https://tap.az/?utm_source=turboaz&utm_medium=desktop-nav&utm_campaign=only-logo#_gl=1*1klfjv2*_ga*NTIwODcyMzYzLjE3MzMwNzI1Njg.*_ga_68B6PJZXYD*czE3NTM3OTAxODgkbzMkZzEkdDE3NTM3OTAyMDkkajM5JGwwJGgw"
+                target="_blank"
+                >Tap.az</a
+              >
+            </li>
+            <li class="hover:text-red-500">
+              <a
+                class="cursor-context-menu"
+                href="https://bina.az/?utm_source=turboaz&utm_medium=desktop-nav&utm_campaign=only-logo"
+                target="_blank"
+                >Bina.az</a
+              >
+            </li>
+            <li class="hover:text-red-500">
+              <a
+                class="cursor-context-menu"
+                href="https://boss.az/?utm_source=turboaz&utm_medium=desktop-nav&utm_campaign=only-logo#_gl=1*s4hp1i*_ga*NTIwODcyMzYzLjE3MzMwNzI1Njg.*_ga_68B6PJZXYD*czE3NTM3OTAxODgkbzMkZzEkdDE3NTM3OTAyMDkkajM5JGwwJGgw"
+                target="_blank"
+                >Boss.az</a
+              >
+            </li>
+          </ul>
+          <ul class="flex gap-5">
+            <li>
+              Dəstək:
+              <a href="#" class="cursor-context-menu hover:text-red-500"
+                >(012) 526-47-47</a
+              >
+            </li>
+            <li class="text-gray-400 hover:text-red-500 cursor-context-menu">
+              Yardım
+            </li>
+            <li class="text-gray-400 hover:text-red-500 cursor-context-menu">
+              RU
+            </li>
+            <li class="text-gray-400 hover:text-red-500 cursor-context-menu">
+              <i class="fa fa-heart" aria-hidden="true"></i> Seçilmişlər
+            </li>
+            <li class="text-gray-400 hover:text-red-500 cursor-context-menu">
+              <i class="fa fa-user-circle" aria-hidden="true"></i> Giriş
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="h-[50px] flex justify-center items-center bg-red-700">
+        <div class="w-[60%] flex justify-between items-center">
+          <p class="uppercase font-bold text-white">turbo.az</p>
+          <ul class="flex gap-4 text-white">
+            <li>Bütün elanlar</li>
+            <li>Dilerlər</li>
+            <li>Avtokataloq</li>
+            <li>Moto</li>
+            <li>Ehtiyat hissələr və aksesuarlar</li>
+            <li>İcarə</li>
+          </ul>
+          <button
+            class="w-[100px] h-[35px] rounded-[5px] text-white bg-green-400 hover:bg-green-500"
+          >
+            <i class="fa-solid fa-plus"></i>
+            Yeni elan
+          </button>
+        </div>
+      </div>
+    </header>
+    <section class="flex justify-center items-center flex-col">
+      <div class="w-[60%] bg-gray-200 pt-9 pl-7 flex flex-col">
+        <div class="flex">
+          <div class="flex flex-wrap w-[25%]">
+            <input
+              type="text"
+              class="w-[90%] h-[45px] bg-white pl-2 rounded-md mb-3"
+              placeholder="Marka"
+            />
+            <input
+              type="text"
+              placeholder="Qiymət, min."
+              class="w-[45%] h-[45px] pl-2 bg-white rounded-l-md"
+            />
+            <input
+              type="text"
+              placeholder="maks."
+              class="w-[45%] h-[45px] pl-2 bg-white rounded-r-md"
+            />
+          </div>
+          <div class="flex flex-wrap w-[25%]">
+            <input
+              type="text"
+              class="w-[90%] h-[45px] bg-white pl-2 rounded-md mb-3"
+              placeholder="Model"
+            />
+            <input
+              type="text"
+              class="w-[28%] h-[45px] bg-white pl-2 rounded-md placeholder:text-black"
+              placeholder="AZN"
+            />
+            <button class="w-[28%] h-[45px] bg-white ml-2 rounded-md">
+              Kredit
+            </button>
+            <button class="w-[28%] h-[45px] bg-white ml-2 rounded-md">
+              Barter
+            </button>
+          </div>
+          <div class="flex flex-wrap w-[25%]">
+            <button
+              id="btn1"
+              onclick="getData()"
+              class="w-[28%] h-[45px] bg-white rounded-l-md mb-3"
+            >
+              Hamısı
+            </button>
+            <button
+              id="btn2"
+              onclick="getData()"
+              class="w-[25%] h-[45px] bg-white mb-3"
+            >
+              Yeni
+            </button>
+            <button
+              id="btn3"
+              onclick="getData()"
+              class="w-[37%] h-[45px] bg-white rounded-r-md mb-3"
+            >
+              Sürülmüş
+            </button>
+            <input
+              type="text"
+              class="w-[90%] h-[45px] bg-white pl-2 rounded-md"
+              placeholder="Ban növü"
+            />
+          </div>
+          <div class="flex flex-wrap w-[25%]">
+            <input
+              type="text"
+              class="w-[90%] h-[45px] bg-white pl-2 rounded-md mb-3"
+              placeholder="Şəhər"
+            />
+            <input
+              type="text"
+              class="w-[45%] h-[45px] bg-white pl-2 rounded-l-md"
+              placeholder="Il, min."
+            />
+            <input
+              type="text"
+              class="w-[45%] h-[45px] bg-white pl-2 rounded-r-md"
+              placeholder="maks."
+            />
+          </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <p>Bu gün: <span class="text-blue-500">1833 yeni elan</span></p>
+          <div class="flex gap-8 mr-7 mt-3 mb-3">
+            <button class="text-gray-400">Sıfırla</button>
+            <button class="text-red-800">Daha çox filtr</button>
+            <button class="bg-red-600 w-50 h-12 text-white rounded-md">
+              Elanları göstər
+            </button>
+          </div>
+        </div>
+      </div>
+      <p
+        class="font-bold uppercase text-[18px] w-[60%] pl-5 pt-3 h-[50px] bg-gray-100"
+      >
+        Premium elanlar
+      </p>
+    </section>
+    <section class="flex justify-center">
+      <div
+        id="data-div"
+        class="w-[60%] flex justify-center gap-5 mt-8 bg-gray-50 flex-wrap"
+      ></div>
+    </section>
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
