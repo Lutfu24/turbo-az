@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./src/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/input.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
@@ -13,7 +14,7 @@
     />
     <title>turbo az</title>
   </head>
-  <body>
+  <body class="dark:bg-black">
     <header>
       <div class="h-[35px] flex justify-center items-center">
         <div class="w-[60%] flex justify-between">
@@ -91,7 +92,7 @@
           <div class="flex flex-wrap w-[25%]">
             <input
               type="text"
-              class="w-[90%] h-[45px] bg-white pl-2 rounded-md mb-3"
+              class="w-[90%] h-[45px] bg-white pl-2 rounded-md"
               placeholder="Marka"
             />
             <input
@@ -192,6 +193,13 @@
         class="w-[60%] flex justify-center gap-5 mt-8 bg-gray-50 flex-wrap"
       ></div>
     </section>
+    <div
+      id="dark"
+      class="fixed right-10 bottom-10"
+      onclick="changeDarkLightMode()"
+    >
+      <i class="fa-solid fa-sun fa-2xl" style="color: #f5cb32"></i>
+    </div>
     <script src="./data.js"></script>
     <script src="./app.js"></script>
   </body>
