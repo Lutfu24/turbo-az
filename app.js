@@ -88,15 +88,20 @@ function AddNewData() {
     city: city.value,
     engine: Number(engine.value),
   };
-  obj.values.forEach((item) => {
-    if (item) {
-      return;
-    }
-  });
-  dataa.push(obj);
-  localStorage.setItem("data", JSON.stringify(dataa));
-  getData();
-  modalSec.classList.add("hidden");
+  if (
+    !brend.value ||
+    !model.value ||
+    !banType.value ||
+    !oCurr.value ||
+    !year.value
+  ) {
+    modalSec.classList.add("hidden");
+  } else {
+    dataa.push(obj);
+    localStorage.setItem("data", JSON.stringify(dataa));
+    getData();
+    modalSec.classList.add("hidden");
+  }
 }
 
 const markaCard = document.querySelector(".markaCard");
