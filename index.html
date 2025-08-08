@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./src/output.css" rel="stylesheet" />
     <link rel="stylesheet" href="./src/input.css" />
+    <link rel="stylesheet" href="./style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
@@ -12,11 +13,18 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css" />
     <title>turbo az</title>
   </head>
-  <body class="dark:bg-black">
+  <body class="dark:bg-gray-800">
     <header>
-      <div class="h-[35px] flex justify-center items-center">
+      <div class="h-[35px] flex justify-center items-center dark:bg-gray-300">
         <div class="w-[60%] flex justify-between">
           <ul class="flex gap-5 text-gray-400">
             <li class="hover:text-red-500">
@@ -70,7 +78,9 @@
       </div>
       <div class="h-[50px] flex justify-center items-center bg-red-700">
         <div class="w-[60%] flex justify-between items-center">
-          <p class="uppercase font-bold text-white">turbo.az</p>
+          <p class="uppercase font-bold text-white">
+            <a href="./index.html">turbo.az</a>
+          </p>
           <ul class="flex gap-4 text-white">
             <li>Bütün elanlar</li>
             <li>Dilerlər</li>
@@ -80,6 +90,7 @@
             <li>İcarə</li>
           </ul>
           <button
+            onclick="showAddNewDataModal()"
             class="w-[100px] h-[35px] rounded-[5px] text-white bg-green-400 hover:bg-green-500"
           >
             <i class="fa-solid fa-plus"></i>
@@ -88,15 +99,154 @@
         </div>
       </div>
     </header>
+
+    <section
+      id="modalSec"
+      class="fixed inset-0 flex justify-center items-center z-[999] hidden"
+    >
+      <div
+        onclick="event.stopPropagation()"
+        class="bg-white w-[350px] min-h-[300px] flex flex-col gap-5 py-5"
+      >
+        <label class="flex justify-between w-[300px] ml-5">
+          Brend:
+          <input
+            type="text"
+            id="brend"
+            class="bg-gray-200"
+            placeholder="Brend"
+          />
+        </label>
+        <label class="flex justify-between w-[300px] ml-5">
+          Model:
+          <input
+            type="text"
+            id="model"
+            class="bg-gray-200"
+            placeholder="Model"
+          />
+        </label>
+        <label class="flex justify-between w-[300px] ml-5">
+          Ban tipi:
+          <input
+            type="text"
+            id="banType"
+            class="bg-gray-200"
+            placeholder="Ban tipi"
+          /> </label
+        ><label class="flex justify-between w-[300px] ml-5">
+          Yürüş:
+          <input
+            type="number"
+            id="oMeter"
+            class="bg-gray-200"
+            placeholder="Yürüş"
+          /> </label
+        ><label class="flex justify-between w-[300px] ml-5">
+          Km/Mil:
+          <input
+            type="text"
+            id="oCurr"
+            class="bg-gray-200"
+            placeholder="Km/Mil"
+          /> </label
+        ><label class="flex justify-between w-[300px] ml-5">
+          Qiymət:
+          <input
+            type="number"
+            id="price"
+            class="bg-gray-200"
+            placeholder="Qiymət"
+          />
+        </label>
+        <label class="flex justify-between w-[300px] ml-5">
+          AZN/USD:
+          <input
+            type="text"
+            id="curry"
+            class="bg-gray-200"
+            placeholder="AZN/USD"
+          />
+        </label>
+        <label class="flex justify-between w-[300px] ml-5">
+          İl:
+          <input type="text" id="year" class="bg-gray-200" placeholder="İl" />
+        </label>
+        <label class="flex flex-col ml-5">
+          Kredit:
+          <label class="w-[50px] flex justify-between">
+            Hə:
+            <input type="radio" id="credit" name="credit" class="bg-gray-200" />
+          </label>
+          <label class="w-[50px] flex justify-between">
+            Yox:
+            <input type="radio" name="credit" class="bg-gray-200" />
+          </label>
+        </label>
+        <label class="flex flex-col ml-5">
+          Barter:
+          <label class="w-[50px] flex justify-between">
+            Hə:
+            <input type="radio" id="barter" name="barter" class="bg-gray-200" />
+          </label>
+          <label class="w-[50px] flex justify-between">
+            Yox:
+            <input type="radio" name="barter" class="bg-gray-200" />
+          </label>
+        </label>
+        <label class="flex justify-between w-[300px] ml-5">
+          Şəkil:
+          <input type="text" id="img" class="bg-gray-200" placeholder="Şəkil" />
+        </label>
+        <label class="flex justify-between w-[300px] ml-5">
+          Şəhər:
+          <input
+            type="text"
+            id="city"
+            class="bg-gray-200"
+            placeholder="Şəhər"
+          />
+        </label>
+        <label class="flex justify-between w-[300px] ml-5">
+          Mator:
+          <input
+            type="text"
+            id="engine"
+            class="bg-gray-200"
+            placeholder="Mator"
+          />
+        </label>
+        <button
+          onclick="AddNewData()"
+          class="bg-blue-500 text-white cursor-pointer py-2"
+        >
+          Yenisini yarat
+        </button>
+      </div>
+    </section>
+
     <section class="flex justify-center items-center flex-col">
-      <div class="w-[60%] bg-gray-200 pt-9 pl-7 flex flex-col">
+      <div
+        class="w-[60%] bg-gray-200 pt-9 pl-7 flex flex-col dark:bg-gray-500 mb-[40px]"
+      >
         <div class="flex">
           <div class="flex flex-wrap w-[25%]">
-            <input
+            <!-- <input
               type="text"
               class="w-[90%] h-[45px] bg-white pl-2 rounded-md"
               placeholder="Marka"
-            />
+            /> -->
+            <div class="marka-select-wrapper relative">
+              <div
+                onclick="showSelectOp(event)"
+                class="marka-select outline-none text-gray-500"
+              >
+                <button id="marca">Marka</button>
+                <div
+                  class="markaCard pl-3 hidden absolute top-[50px] flex justify-start items-start flex-col bg-white z-10 w-full -left-0 overflow-y-scroll"
+                ></div>
+              </div>
+            </div>
             <input
               type="text"
               placeholder="Qiymət, min."
@@ -184,24 +334,19 @@
         </div>
       </div>
       <p
-        class="font-bold uppercase text-[18px] w-[60%] pl-5 pt-3 h-[50px] bg-gray-100"
+        class="animate__animated animate__bounce animate__infinite animate__slow animate__delay-2s font-bold uppercase text-[18px] w-[60%] pl-5 pt-3 h-[50px] text-red-600 dark:bg-gray-800 dark:text-red-600"
       >
         Premium elanlar
       </p>
     </section>
+
     <section class="flex justify-center">
       <div
         id="data-div"
-        class="w-[60%] flex justify-center gap-5 mt-8 bg-gray-50 flex-wrap"
+        class="w-[60%] flex justify-start gap-5 bg-gray-50 flex-wrap pt-3 pl-7 dark:bg-gray-500"
       ></div>
     </section>
-    <div
-      id="dark"
-      class="fixed right-10 bottom-10"
-      onclick="changeDarkLightMode()"
-    >
-      <i class="fa-solid fa-sun fa-2xl" style="color: #f5cb32"></i>
-    </div>
+    <div id="dark" class="fixed right-10 bottom-10"></div>
     <script src="./data.js"></script>
     <script src="./app.js"></script>
   </body>

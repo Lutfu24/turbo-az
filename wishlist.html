@@ -67,7 +67,9 @@
       </div>
       <div class="h-[50px] flex justify-center items-center bg-red-700">
         <div class="w-[60%] flex justify-between items-center">
-          <p class="uppercase font-bold text-white">turbo.az</p>
+          <p class="uppercase font-bold text-white">
+            <a href="./index.html">turbo.az</a>
+          </p>
           <ul class="flex gap-4 text-white">
             <li>Bütün elanlar</li>
             <li>Dilerlər</li>
@@ -85,31 +87,52 @@
         </div>
       </div>
     </header>
+
     <section class="flex justify-center items-start h-[100vh]">
       <div
         id="wish"
-        class="w-[60%] flex items-center flex-wrap gap-5 bg-gray-50"
+        class="w-[60%] flex items-start flex-wrap gap-5 bg-gray-50"
       ></div>
     </section>
-    <script src="./data.js"></script>
 
     <script>
       const wish = document.getElementById("wish");
-      const wishArr = JSON.parse(localStorage.getItem("id"));
-      console.log(wishArr);
-      wishArr.forEach((curr) => {
-        let finddata = data.filter((item) => item.id == curr);
-        finddata.forEach((item) => {
-          wish.innerHTML += `<div class="w-[23%] rounded-md bg-white mt-3 h-[300px]">
+      let wishArr = JSON.parse(localStorage.getItem("id"));
+      const data = JSON.parse(localStorage.getItem("data"));
+
+      function getData() {
+        wishArr.forEach((curr) => {
+          let finddata = data.filter((item) => item.id == curr);
+          finddata.forEach((item) => {
+            wish.innerHTML += `<div class="relative w-[23%] rounded-md bg-white mt-3 h-[300px]">
                         <a href="./detail.html?id=${item.id}" target="_blank">
                         <img src="${item.images[0]}" class="w-full object-cover rounded-t-md h-[160px]" />
                         <h1 class="font-bold ml-2 mt-2">${item.price} ${item.currency}</h1>
                         <p class="ml-2 mt-2">${item.brand} ${item.model}</p>
                         <p class="ml-2 mt-2">${item.year}, ${item.engine} L, ${item.odometer} km</p>
+                        <a id="wish" onclick="removeWishList(event)" class="absolute text-white font-extralight top-1 right-1 text-2xl" target="_blank"><i class="fa-solid fa-heart text-red-600" data-id="${item.id}"></i>
+                        </a>
                         </a>
                         </div>`;
+          });
         });
-      });
+        if (wish.innerHTML == "") {
+          wish.innerHTML = `<h1 class="font-bold text-2xl text-red-600 mt-2">Seçilmişlər boşdur</h1>`;
+          wish.style.display = "flex";
+          wish.style.justifyContent = "center";
+          wish.style.backgroundColor = "white";
+        }
+      }
+
+      getData();
+
+      function removeWishList(e) {
+        const id = e.target.getAttribute("data-id");
+        wishArr = wishArr.filter((item) => item !== id);
+        localStorage.setItem("id", JSON.stringify(wishArr));
+        wish.innerHTML = "";
+        getData();
+      }
     </script>
   </body>
 </html>
