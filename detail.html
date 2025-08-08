@@ -91,10 +91,10 @@
     </section>
     <script src="./data.js"></script>
     <script>
-      const data = JSON.parse(localStorage.getItem("data")) || data;
+      const dataa = JSON.parse(localStorage.getItem("data")) || data;
       const qParams = location.search;
       let id = new URLSearchParams(qParams).get("id");
-      let findedelm = data.find((item) => item.id == id);
+      let findedelm = dataa.find((item) => item.id == id);
 
       detail.innerHTML = `<div>
                               <h1 class="font-bold mb-3 text-2xl">${findedelm.brand} ${findedelm.model}, ${findedelm.engine} L, ${findedelm.year} il, ${findedelm.odometer} km</h1>

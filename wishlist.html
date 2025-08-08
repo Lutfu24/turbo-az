@@ -98,11 +98,11 @@
     <script>
       const wish = document.getElementById("wish");
       let wishArr = JSON.parse(localStorage.getItem("id"));
-      const data = JSON.parse(localStorage.getItem("data")) || data;
+      const dataa = JSON.parse(localStorage.getItem("data")) || data;
 
       function getData() {
         wishArr.forEach((curr) => {
-          let finddata = data.filter((item) => item.id == curr);
+          let finddata = dataa.filter((item) => item.id == curr);
           finddata.forEach((item) => {
             wish.innerHTML += `<div class="relative w-[23%] rounded-md bg-white mt-3 h-[300px]">
                         <a href="./detail.html?id=${item.id}" target="_blank">
