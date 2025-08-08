@@ -89,8 +89,9 @@
     <section class="flex justify-center items-start pt-20 h-[100vh]">
       <div id="detail" class="w-[60%] flex"></div>
     </section>
+    <script src="./data.js"></script>
     <script>
-      const data = JSON.parse(localStorage.getItem("data"));
+      const data = JSON.parse(localStorage.getItem("data")) || data;
       const qParams = location.search;
       let id = new URLSearchParams(qParams).get("id");
       let findedelm = data.find((item) => item.id == id);

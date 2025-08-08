@@ -94,11 +94,11 @@
         class="w-[60%] flex items-start flex-wrap gap-5 bg-gray-50"
       ></div>
     </section>
-
+    <script src="./data.js"></script>
     <script>
       const wish = document.getElementById("wish");
       let wishArr = JSON.parse(localStorage.getItem("id"));
-      const data = JSON.parse(localStorage.getItem("data"));
+      const data = JSON.parse(localStorage.getItem("data")) || data;
 
       function getData() {
         wishArr.forEach((curr) => {
